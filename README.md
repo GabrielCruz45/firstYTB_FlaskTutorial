@@ -7,4 +7,6 @@ classes, logic, etc., etc. in the tutorial.
 The purpose is to be able to make informed or intuit 
 high-level decisions when starting, configuring and creating a Flask project
 
-Will serve as a pre-cursor/starting point for my libraryApp project
+Will serve as a pre-cursor/starting point for my libraryApp project.
+
+Read DEVLOG.md for personal thoughts throughout the mini-learning-journey.
