@@ -1,16 +1,18 @@
 # imports the main Flask class from the flask library and the render_template function
 from flask import Flask, render_template 
-from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.orm import DeclarativeBase
+from flask_sqlalchemy import SQLAlchemy # the goal of SQLAlchemy is to let us interact with a SQL database using Python objects and methods 
+from sqlalchemy.orm import DeclarativeBase # foundation for all your database models
 from datetime import datetime
 
 
 
-db = SQLAlchemy() # creates empty placeholder object because it received no input
+class Base(DeclarativeBase):
+    pass
+
+
+db = SQLAlchemy(model_class=Base) # creates empty placeholder object because it received no input
 # so as not to create an error before initializing the app
 
-class Base(DeclarativeBase):
-  pass
 
 # database model
 class Todo(db.Model):
@@ -18,9 +20,12 @@ class Todo(db.Model):
     content = db.Column(db.String(200), nullable=False)
     date_created = db.Column(db.DateTime, default=datetime.now)
 
+    # repr == representation; this is for debugging purposes, helps quickly identify the object when debugging
     def __repr__(self): # returns a string everytime we create a new element
         return '<Task %r>' % self.id
-    
+
+
+   
 # ---------------------------------------------------------------IMPORTANT!----------------------------------------------------------------
 # It doesn't build a table or access a database. 
 # It simply registers the structure of your Todo table with that empty db placeholder. 
@@ -33,9 +38,13 @@ def create_app():
     # you need a central object so that you can define all your application's routes and configurations
 
     app.config['SQLAlchemy_DATABASE_URI'] = 'sqlite:///test.db' # links to database using SQLAlchemy; /// -> relative path //// -> absolute path
-    app.config['SQL_TRACK MODIFICATIONS'] = False # disables feature deprecated
+    app.config['SQLALCHEMY_TRACK MODIFICATIONS'] = False # disables feature deprecated
     
-    db.init_app(app)
+
+    # db knows about the models and app knows where to find the database but it still hasn't been connected
+
+    # fully links the database to the application, dejándose llevar por "app.config['SQLAlchemy_DATABASE_URI'] = 'sqlite:///test.db'"
+    db.init_app(app) 
 
     # --- Routes ---
     # python decorator, tell your app to immediately trigger the following function 
@@ -48,8 +57,10 @@ def create_app():
     return app
 
 
+
+
 # initialize app
-app = create_app
+app = create_app()
 
 
 
