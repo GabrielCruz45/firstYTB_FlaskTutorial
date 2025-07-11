@@ -1,5 +1,5 @@
 # imports the main Flask class from the flask library and the render_template function
-from flask import Flask, render_template 
+from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy # the goal of SQLAlchemy is to let us interact with a SQL database using Python objects and methods 
 from sqlalchemy.orm import DeclarativeBase # foundation for all your database models
 from datetime import datetime
@@ -37,7 +37,7 @@ def create_app():
     app = Flask(__name__) # the app variable is your web application object
     # you need a central object so that you can define all your application's routes and configurations
 
-    app.config['SQLAlchemy_DATABASE_URI'] = 'sqlite:///test.db' # links to database using SQLAlchemy; /// -> relative path //// -> absolute path
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db' # links to database using SQLAlchemy; /// -> relative path //// -> absolute path
     app.config['SQLALCHEMY_TRACK MODIFICATIONS'] = False # disables feature deprecated
     
 
@@ -49,10 +49,23 @@ def create_app():
     # --- Routes ---
     # python decorator, tell your app to immediately trigger the following function 
     # after the user navigates to the specified URL path
-    @app.route('/')
+    @app.route('/', methods=["GET", "POST"])
     # view function; Flask executes this function whenever the user visits '/'
     def index():
-        return render_template("index.html") # runs index.html
+        if request.method == "POST":
+            task_content = request.form['content']
+            new_task = Todo(content=task_content)
+
+            try:
+                db.session.add(new_task)
+                db.session.commit()
+                return redirect('/')
+            except:
+                return "There was an error adding your task."
+        else:
+            print("GET")
+            tasks = Todo.query.order_by(Todo.date_created).all()
+            return render_template("index.html", tasks=tasks) # runs index.html
     
     return app
 
