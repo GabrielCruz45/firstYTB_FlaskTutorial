@@ -2,6 +2,7 @@
 from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy # the goal of SQLAlchemy is to let us interact with a SQL database using Python objects and methods 
 from sqlalchemy.orm import DeclarativeBase # foundation for all your database models
+from sqlalchemy import select
 from datetime import datetime
 
 
@@ -64,8 +65,12 @@ def create_app():
                 return "There was an error adding your task."
         else:
             print("GET")
-            tasks = Todo.query.order_by(Todo.date_created).all()
-            return render_template("index.html", tasks=tasks) # runs index.html
+            # Create a statement to select all tasks, ordered by their creation date
+            statement = select(Todo).order_by(Todo.date_created)
+
+            # Execute the statement and get all results as a list of Todo objects
+            tasks = db.session.scalars(statement).all()
+            return render_template("index.html", tasks=tasks) # runs index.html with tasks arranged in creation order
     
     return app
 

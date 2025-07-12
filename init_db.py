@@ -4,7 +4,7 @@ from sqlalchemy.exc import SQLAlchemyError
 app = create_app()
 
 try:
-    with app.appcontext(): # The .app_context() method creates a temporary environment where your code 
+    with app.app_context(): # The .app_context() method creates a temporary environment where your code 
         # can access the application's settings and extensions.
         db.create_all()
         print("Database was successfully created")
