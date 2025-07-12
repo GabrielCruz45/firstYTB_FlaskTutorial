@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 {% block head %}
 
-<title>Taskmaster</title>
+{{ super() }}<title>Taskmaster</title>
+<!-- By adding {{ super() }}, you are telling the template to insert 
+ whatever was in the parent head block right at that spot, 
+ effectively combining the content from both files. -->
 
 {% endblock head %}
 
@@ -19,7 +22,7 @@
         <tr>
             <td>{{ task.content }}</td>
             <td>{{ task.date_created }}</td>
-            <td><a href="http://">Delete</a><a href="http://">Update</a></td>
+            <td class="actions"><a href="http://">Delete</a><a href="http://">Update</a></td>
         </tr>
         {% endfor %}
     </table>

@@ -14,10 +14,10 @@ Depending on how the tutorial flows, I will add these features after completing 
 
 
 June 11, 2025 
-    Added stylings to styles.css
+    Added stylings to "styles.css".
 
 June 12, 2025
     Edited init_db.py, had a little typo on ".app_context()" had-> .appcontext()
 Ran the script and created the .db file
 Tested the web app. Currently can add tasks successfully!
-Next onto the delete and update links
+Next onto the delete and update links.

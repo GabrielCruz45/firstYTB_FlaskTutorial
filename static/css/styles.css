@@ -6,14 +6,13 @@
 
 
 body {
-    background-color: black;
+    background-color: #333;
     color: white;
     font-family: 'Times New Roman', Times, serif;
     font-size: medium;
     display: flex;
+    align-items: center;
     justify-content: center;
-    justify-items: center;
-    align-items: center;   
 }
 
 
@@ -23,16 +22,29 @@ body {
     grid-template-rows: repeat(3, 1fr);
     justify-content: center;
     justify-items: center;
+    text-align: center;
 }
 
 h1 {
     grid-area: 1/1/1/1;
+    text-align: center;
 }
 
 table {
     grid-area: 2/1/2/1;
+    text-align: center;
+}
+
+tr, td {
+    padding: 1rem;
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
 }
 
 form {
     grid-area: 3/1/3/1;
+    text-align: center;
 }

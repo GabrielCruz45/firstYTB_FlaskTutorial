@@ -12,7 +12,7 @@ class Base(DeclarativeBase):
 
 
 db = SQLAlchemy(model_class=Base) # creates empty placeholder object because it received no input
-# so as not to create an error before initializing the app
+# (so as not to create an error before initializing the app)
 
 
 # database model
