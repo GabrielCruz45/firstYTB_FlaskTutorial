@@ -17,7 +17,11 @@ June 11, 2025
     Added stylings to "styles.css".
 
 June 12, 2025
+    Session 1:
     Edited init_db.py, had a little typo on ".app_context()" had-> .appcontext()
 Ran the script and created the .db file
 Tested the web app. Currently can add tasks successfully!
 Next onto the delete and update links.
+
+    Session 2:
+    Edited .html files because they had a bug. I didn't write {{ super() }} <title>... on child .html file, throwing 404 error when running app. jinja2 headblock was rewriting the <head> section. Edited further styles.css and file tree. Learned about the networking tab on browse's inspect section!
