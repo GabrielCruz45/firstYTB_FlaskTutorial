@@ -24,7 +24,7 @@ Tested the web app. Currently can add tasks successfully!
 Next onto the delete and update links.
 
     Session 2:
-    Edited .html files because they had a bug. I didn't write {{ super() }} <title>... on child .html file, throwing 404 error when running app. jinja2 headblock was rewriting the <head> section. Edited further styles.css and file tree. Learned about the networking tab on browse's inspect section!
+    Edited .html files because they had a bug. I didn't write {{ super() }} <title>... on child .html file, throwing 404 error when running app. jinja2 headblock was rewriting the <head> section, disregarding styles.css file. Edited further styles.css and file tree. Learned about the networking tab on browse's inspect section!
 
 June 13, 2025
     Session 1:
