@@ -33,3 +33,7 @@ June 13, 2025
     After completing the tutorial's app launch section, will refactor the project structure (separate routes from app.py), add authentification and implement better security practices. Finally will edit app's styling.
 
     Updated command line tools (xcode), downloaded heroku.
+
+    Added requirements.txt and Profcile for Heroku deployment.
+
+    Successful deployment! Will now move onto refactoring and styling before finishing with the mini-learning journey.
