@@ -28,4 +28,8 @@ Next onto the delete and update links.
 
 June 13, 2025
     Session 1:
-    
+    Finished app! Added delete and update routes on create_app function. Also, added update.html. Used some cool jinja2 syntax on index.html and update.html in particular the {{task.id}} to send variables from template to script.
+
+    After completing the tutorial's app launch section, will refactor the project structure (separate routes from app.py), add authentification and implement better security practices. Finally will edit app's styling.
+
+    Updated command line tools (xcode), downloaded heroku.
