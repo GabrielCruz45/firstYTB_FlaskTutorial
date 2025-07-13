@@ -32,8 +32,10 @@ June 13, 2025
 
     After completing the tutorial's app launch section, will refactor the project structure (separate routes from app.py), add authentification and implement better security practices. Finally will edit app's styling.
 
+    Session 2:
     Updated command line tools (xcode), downloaded heroku.
-
     Added requirements.txt and Profcile for Heroku deployment.
-
     Successful deployment! Will now move onto refactoring and styling before finishing with the mini-learning journey.
+
+    Refactored the applications file structure. Made it more modular/prepared it for scaling.
+    Removed init_db.py as it was not necessary. When scaling a migration framework is preffered and actually practical.
