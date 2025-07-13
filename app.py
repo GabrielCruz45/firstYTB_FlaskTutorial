@@ -71,7 +71,36 @@ def create_app():
             # Execute the statement and get all results as a list of Todo objects
             tasks = db.session.scalars(statement).all()
             return render_template("index.html", tasks=tasks) # runs index.html with tasks arranged in creation order
-    
+        
+    @app.route('/delete/<int:id>')
+    def delete(id):
+        task_to_delete = Todo.query.get_or_404(id)
+
+        try:
+            db.session.delete(task_to_delete)
+            db.session.commit()
+            return redirect('/')
+        except:
+            return 'There was a problem to deleting that task'
+        
+    @app.route('/update/<int:id>', methods=['GET','POST'])
+    def update(id):
+        
+        task = Todo.query.get_or_404(id)
+
+        if request.method == 'POST':
+            task.content = request.form['content']
+
+            try:
+                db.session.commit()
+                return redirect('/')
+            except:
+                return 'There was an issue updating your task.'
+        else:
+            return render_template("update.html", task=task)
+
+
+        return
     return app
 
 
