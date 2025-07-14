@@ -39,3 +39,7 @@ June 13, 2025
 
     Refactored the applications file structure. Made it more modular/prepared it for scaling.
     Removed init_db.py as it was not necessary. When scaling, a migration framework is preffered and actually practical.
+
+
+    Session 3:
+    Separated routes.py in to each route's particular script and added Flask-Migrate for even more modularity. Updated requirements.txt and __init__.py because of these changes.
