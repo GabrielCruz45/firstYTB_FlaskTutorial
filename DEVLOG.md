@@ -38,4 +38,4 @@ June 13, 2025
     Successful deployment! Will now move onto refactoring and styling before finishing with the mini-learning journey.
 
     Refactored the applications file structure. Made it more modular/prepared it for scaling.
-    Removed init_db.py as it was not necessary. When scaling a migration framework is preffered and actually practical.
+    Removed init_db.py as it was not necessary. When scaling, a migration framework is preffered and actually practical.

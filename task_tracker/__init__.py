@@ -1,6 +1,8 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import DeclarativeBase
+from flask_migrate import Migrate
+
 
 
 class Base(DeclarativeBase):
@@ -8,6 +10,7 @@ class Base(DeclarativeBase):
 
 db = SQLAlchemy(model_class=Base) # creates empty placeholder object because it received no input
 # (so as not to create an error before initializing the app)
+migrate = Migrate()
 
 
 def create_app():
@@ -23,13 +26,16 @@ def create_app():
     # db knows about the models and app knows where to find the database but it still hasn't been connected
     # fully links the database to the application, dejándose llevar por "app.config['SQLAlchemy_DATABASE_URI'] = 'sqlite:///test.db'"
     db.init_app(app) 
+    migrate.init_app(app, db)
 
     with app.app_context():
-        from .models import Todo # imports Todo models
-        db.create_all() # Create database tables
 
-        from .blueprints import routes
-        app.register_blueprint(routes.tasks_bp)
+        from .blueprints.index import index_bp
+        from .blueprints.update import update_bp
+        from .blueprints.delete import delete_bp
 
-    
+        app.register_blueprint(index_bp)
+        app.register_blueprint(delete_bp)
+        app.register_blueprint(update_bp)
+
     return app
