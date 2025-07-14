@@ -46,3 +46,12 @@ June 13, 2025
 
     Session 3:
     Separated routes.py in to each route's particular script and added Flask-Migrate for even more modularity. Updated requirements.txt and __init__.py because of these changes. Will move on to stylings.
+
+
+June 14, 2025
+    Session 1:
+    Edited further styles.css. h1 tag doesn't seem to be appearing, will debug later on.
+
+
+    Session 2:
+    Edited further styles.css. Added "zebra "striping to table, still the first and bottom rows, when hovered, lose the radius. Will follow up later. Will add media query for mobile responsive desgin.
