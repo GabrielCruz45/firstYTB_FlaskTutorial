@@ -2,6 +2,7 @@ June 9, 2025
     Some functionalities used on the tutorial are deprecated, tutorial is from 2019.
 I am currently using LLM heavily to understand how to setup the application with app size in mind (lots of routes, tables etc.). Will help me a lot with the libraryApp project.
 
+
 June 10, 2025
     Used an LLM to help me further understand the functionalities of the app.py script, line by line. Asked it for next steps, told me to:
 
@@ -16,6 +17,7 @@ Depending on how the tutorial flows, I will add these features after completing 
 June 11, 2025 
     Added stylings to "styles.css".
 
+
 June 12, 2025
     Session 1:
     Edited init_db.py, had a little typo on ".app_context()" had-> .appcontext()
@@ -25,6 +27,7 @@ Next onto the delete and update links.
 
     Session 2:
     Edited .html files because they had a bug. I didn't write {{ super() }} <title>... on child .html file, throwing 404 error when running app. jinja2 headblock was rewriting the <head> section, disregarding styles.css file. Edited further styles.css and file tree. Learned about the networking tab on browse's inspect section!
+
 
 June 13, 2025
     Session 1:
@@ -42,4 +45,4 @@ June 13, 2025
 
 
     Session 3:
-    Separated routes.py in to each route's particular script and added Flask-Migrate for even more modularity. Updated requirements.txt and __init__.py because of these changes.
+    Separated routes.py in to each route's particular script and added Flask-Migrate for even more modularity. Updated requirements.txt and __init__.py because of these changes. Will move on to stylings.

@@ -1,0 +1,43 @@
+Step 3: Initialize the Migration Repository
+
+
+
+This is a one-time command. Run it in your terminal from the root directory of your project.
+    
+    Bash
+
+    flask db init
+
+
+This command creates a new migrations folder in your project. This is where Flask-Migrate will store all the scripts that track changes to your database schema.
+
+                        *If you changed app.py to other:
+                            
+                            Bash
+
+                            export FLASK_APP=run.py
+                            flask db init
+
+
+
+Step 4: Generate and Apply Migrations
+
+
+
+This is the workflow you will follow whenever you change your models.
+
+
+
+Generate a new migration: After changing a model in models.py, run this command.
+    
+    Bash
+
+    flask db migrate -m "A short message describing your changes"
+
+
+
+Apply the migration: This command runs the script generated above to update your database.
+    
+    Bash
+
+    flask db upgrade
