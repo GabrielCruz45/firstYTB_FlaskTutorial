@@ -57,4 +57,4 @@ June 14, 2025
     Edited further styles.css. Added "zebra "striping to table, still the first and bottom rows, when hovered, lose the radius. Will follow up later. Will add media query for mobile responsive desgin.
 
     Session 3:
-    
+    Finally happy with styling. Abandoned border-radii. Wasn't achieving desired results and I don't want to spend a lot of more time on this project. Will end (until now) with stylings and move on to media queries, the final frontier.
