@@ -55,3 +55,6 @@ June 14, 2025
 
     Session 2:
     Edited further styles.css. Added "zebra "striping to table, still the first and bottom rows, when hovered, lose the radius. Will follow up later. Will add media query for mobile responsive desgin.
+
+    Session 3:
+    
