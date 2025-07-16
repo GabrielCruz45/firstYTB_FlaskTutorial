@@ -58,3 +58,19 @@ June 14, 2025
 
     Session 3:
     Finally happy with styling. Abandoned border-radii. Wasn't achieving desired results and I don't want to spend a lot of more time on this project. Will end (until now) with stylings and move on to media queries, the final frontier.
+
+
+June 15, 2025
+    Session 1:
+    Will start with authentication (https://www.youtube.com/watch?v=Fr2MxT9M0V4), felt a little bit tired of dealing with css.
+
+
+June 16, 2025
+    Session 1:
+    Realized I should've opened up a new branch when making substantial changes to the application. Need to practice this skill, will start with this session just to start getting a feel for it. 
+    
+    Learned new Git commands, check gitLearnings.txt for more info.
+
+    Restarted migration, learned that it's recommended to start the application development with the migration set up. You will probably change the database schema later on, and adds version control to your databases. Check migration_instructions.txt for further information.
+
+    Added the new database in the configuration section of the app. Added it to models.py. Purposefuly left the password column to practice migration. Let's see how it goes, but first will push all the changes so far to the userAuth branch whilst creating the remote branch on GitHub.com

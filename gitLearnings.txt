@@ -1,0 +1,30 @@
+Branches
+    
+    Creates new branch, changes you to it
+        git checkout -b <your-new-branch-name>
+
+
+    Set ups a tracking relationship bewteen your local branch and the new remote branch.
+    After you can run ' git push ' and ' git pull ' without specifying the branch name again
+        git add .
+        git commit -m ""
+        git push -u origin <your-new-branch-name>
+
+
+    Verifies your current branch (current branch will be marked with a *)
+        git branch
+
+
+    To switch to an existing branch
+        git checkout <branch-name>
+
+        or
+
+        git checkout <remote-branch-name>
+
+    ** Note on switching: 
+        Make sure you have saved all your work before switching! ' git add .; git commit -m "" '
+        If you are not ready to commit, stash your changes ' git stash '
+
+        When you return to the original branch (where you left), you can reapply your stashed changes
+        ' git stash pop '
