@@ -28,3 +28,38 @@ Branches
 
         When you return to the original branch (where you left), you can reapply your stashed changes
         ' git stash pop '
+
+
+
+
+
+
+to merge branches
+
+
+push all the final changes to the separate branch (not main)
+    git add .
+    git commit -m "final changes to separate branch; etc."
+    git push
+
+
+change branches to merged into branch
+    git checkout main
+
+
+pull latest changes form your remote repository like GitHub
+    git pull origin main
+
+
+run the merge command
+    git merge <separate branch's name>
+
+
+push the merged branch
+    git push origin main
+
+
+
+To check for successful merge
+    git log --oneline --graph
+    q (to escape after)
