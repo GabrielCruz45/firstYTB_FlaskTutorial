@@ -1,9 +1,10 @@
+import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import DeclarativeBase
 from flask_migrate import Migrate
 
-
+basedir = os.path.abspath(os.path.dirname(__file__))
 
 class Base(DeclarativeBase):
     pass
@@ -19,7 +20,8 @@ def create_app():
 
     app.config.from_mapping(
         SECRET_KEY='dev',
-        SQLALCHEMY_DATABASE_URI = 'sqlite:///test.db', # links to database using SQLAlchemy; /// -> relative path //// -> absolute path
+        SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'test.db'), # links to database using SQLAlchemy; /// -> relative path //// -> absolute path
+        SQLALCHEMY_BINDS = {'users' : 'sqlite:///' + os.path.join(basedir, 'users.db')}, # links to second database, can be used to link to mul;tiple other databases
         SQLALCHEMY_TRACK_MODIFICATIONS = False # disables deprecated feature
     )
     
@@ -28,14 +30,27 @@ def create_app():
     db.init_app(app) 
     migrate.init_app(app, db)
 
+    from . import models # (models isn't being used in this script but) this line executes the code inside models.py
+    # you're importing it to run it for its registration side effects
+
     with app.app_context():
 
         from .blueprints.index import index_bp
         from .blueprints.update import update_bp
         from .blueprints.delete import delete_bp
+        from .blueprints.dashboard import dashboard_bp
+        from .blueprints.login import login_bp
+        from .blueprints.logout import logout_bp
+        from .blueprints.register import register_bp
+        from .blueprints.task_tracker import task_tracker_bp
 
         app.register_blueprint(index_bp)
         app.register_blueprint(delete_bp)
         app.register_blueprint(update_bp)
+        app.register_blueprint(dashboard_bp)
+        app.register_blueprint(login_bp)
+        app.register_blueprint(logout_bp)
+        app.register_blueprint(register_bp)
+        app.register_blueprint(task_tracker_bp)
 
     return app
