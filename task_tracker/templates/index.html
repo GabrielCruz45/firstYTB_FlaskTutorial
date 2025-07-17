@@ -13,7 +13,7 @@
 {% block body %}
 <div class="container-auth">
     <h1>Auth</h1>
-    <form id="auth-form" action="{{url_for('login')}}" method="post"> <!--- We're sending info -> POST method  --->
+    <form id="auth-form" action="{{url_for('login.login')}}" method="post"> <!--- We're sending info -> POST method  --->
         <input type="text" name="username" id="username" placeholder="username" class="input-field">
         <input type="password" name="password" id="password" class="input-field">
         <input type="submit" value="Login" class="btn btn-login" onclick="setActionForm('login')">
