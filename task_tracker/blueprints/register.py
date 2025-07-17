@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, session, url_for
 from .. import db
-from ..models import User
+from ..models import Users
 
 
 register_bp = Blueprint('register', __name__)
@@ -10,7 +10,7 @@ def register():
     # collect user input
     username = request.form['username']
     password = request.form['password']
-    user = User.query.filter_by(username=username).first()
+    user = Users.query.filter_by(username=username).first()
 
     # check if the user is NOT already in the database
     if user:
@@ -18,7 +18,7 @@ def register():
     
     else:
         # if not on db, create user with user input
-        new_user = User(username=username)
+        new_user = Users(username=username)
         new_user.set_password(password)
 
         # add new object to db, and fully commit
@@ -28,5 +28,5 @@ def register():
         # log in user to new session and redirect
         session['username'] = username
         session.permanent = True # creates cookie for mantaining logged in status
-        return redirect(url_for('dashboard'))
+        return redirect(url_for('dashboard.dashboard'))
     pass

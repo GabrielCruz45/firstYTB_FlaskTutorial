@@ -4,12 +4,12 @@ from ..models import Todo
 from sqlalchemy import select
 
 
-index_bp = Blueprint('task_tracker', __name__)
+task_tracker_bp = Blueprint('task_tracker', __name__)
 
 # --- Routes ---
 # python decorator, tell your app to immediately trigger the following function 
 # after the user navigates to the specified URL path
-@index_bp.route('/', methods=["GET", "POST"])
+@task_tracker_bp.route('/', methods=["GET", "POST"])
 # view function; Flask executes this function whenever the user visits '/'
 def index():
     if request.method == "POST":

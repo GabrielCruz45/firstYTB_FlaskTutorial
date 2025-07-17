@@ -10,4 +10,4 @@ def dashboard():
     if "username" in session:
         return render_template('dashboard.html', username=session['username'])
     else:
-        return redirect(url_for('index'))
+        return redirect(url_for('index.index'))

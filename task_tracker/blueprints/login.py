@@ -18,7 +18,7 @@ def login():
         # if true, log user in
         session['username'] = username
         session.permanent = True # creates cookie for mantaining logged in status
-        return redirect(url_for('dashboard'))
+        return redirect(url_for('dashboard.dashboard'))
     
     # otherwise show homepage
     else:
