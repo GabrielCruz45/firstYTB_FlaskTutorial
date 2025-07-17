@@ -100,4 +100,8 @@ June 16, 2025
 
 June 17, 2025
 
+    Session 1:
     Moved gitLearnings.txt and migration_instructions.txt to a new folder called "learnings".
+
+    Session 2:
+    Updated models.py and other blueprints on 3rd branch to use SQLAlchemy 2.0 features. Deleted old databases and started anew with migrations. Did a successful migration before leaving branch. Next step is to manipulate the new tables, linking users to their tasks.
