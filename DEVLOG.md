@@ -97,3 +97,7 @@ June 16, 2025
     Added the anchor html tag on the dashboard for the task tracker route. Will make a new branch and develop that feature later on. Will now focus on sass, and "link up" the tables later on. Feeling tired of flask right now.
 
     Added scss setup on create_app function. Will continue with project tomorrow. Had fun today.
+
+June 17, 2025
+
+    Moved gitLearnings.txt and migration_instructions.txt to a new folder called "learnings".

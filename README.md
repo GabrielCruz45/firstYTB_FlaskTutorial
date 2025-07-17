@@ -12,3 +12,5 @@ Will serve as a pre-cursor/starting point for my libraryApp project, my CS50's f
 Read DEVLOG.md for personal thoughts throughout the mini-learning-journey.
 
 Also, following https://www.youtube.com/watch?v=Fr2MxT9M0V4 to improve on the app.
+
+Thinking about creating a template from this project for future Flask endeavors.
