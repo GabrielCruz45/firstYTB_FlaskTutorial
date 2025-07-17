@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, redirect
 from .. import db
-from ..models import Todo
+from ..models import Task
 from sqlalchemy import select
 
 
@@ -13,8 +13,8 @@ task_tracker_bp = Blueprint('task_tracker', __name__)
 # view function; Flask executes this function whenever the user visits '/'
 def task_tracker():
     if request.method == "POST":
-        task_content = request.form['content']
-        new_task = Todo(content=task_content)
+        task_content = request.form['task']
+        new_task = Task(content=task_content)
 
         try:
             db.session.add(new_task)
@@ -27,8 +27,8 @@ def task_tracker():
     else:
         print("GET")
         # Create a statement to select all tasks, ordered by their creation date
-        statement = select(Todo).order_by(Todo.date_created)
+        statement = select(Task).order_by(Task.date_created)
 
-        # Execute the statement and get all results as a list of Todo objects
+        # Execute the statement and get all results as a list of Task objects
         tasks = db.session.scalars(statement).all()
         return render_template("index.html", tasks=tasks) # runs index.html with tasks arranged in creation order

@@ -20,7 +20,6 @@ def create_app():
     app.config.from_mapping(
         SECRET_KEY='dev',
         SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(app.instance_path, 'test.db'), # links to database using SQLAlchemy; /// -> relative path //// -> absolute path
-        SQLALCHEMY_BINDS = {'users' : 'sqlite:///' + os.path.join(app.instance_path, 'users.db')}, # links to second database, can be used to link to mul;tiple other databases
         SQLALCHEMY_TRACK_MODIFICATIONS = False # disables deprecated feature
     )
 

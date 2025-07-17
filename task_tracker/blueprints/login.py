@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, session, url_for
-from ..models import Users
+from ..models import User
 
 
 
@@ -12,8 +12,8 @@ def login():
     password = request.form['password']
 
     # check if its int the db / login
-    # create an obeject of the users.db in order to make a query
-    user = Users.query.filter_by(username=username).first()
+    # create an obeject of the user.db in order to make a query
+    user = User.query.filter_by(username=username).first()
     if user and user.check_password(password):
         # if true, log user in
         session['username'] = username

@@ -1,39 +1,38 @@
 from . import db
 from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
-from typing import List, Optional
+from typing import List
 from sqlalchemy import ForeignKey, String
-from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy import func
 
 # database model
-class Todo(db.Model): # change 'Todo' to 'Task'
-    __tablename__ = 'todos'
+class Task(db.Model): 
+    __tablename__ = 'tasks'
 
     id: Mapped[int] = mapped_column(primary_key=True)
     task: Mapped[str] = mapped_column(String(200))
-    date_created: Mapped[datetime.datetime] = mapped_column(
+    date_created: Mapped[datetime] = mapped_column(
     server_default=func.now()
     )
 
     user_id: Mapped[int] = mapped_column(ForeignKey("users.id"))
 
-    user: Mapped["User"] = relationship(back_populates="todos")
+    user: Mapped["User"] = relationship(back_populates="tasks")
 
     def __repr__(self) -> str:
-        return f"Todo(id={self.id!r}, task={self.task!r}, datetime={self.date_created!r})"
+        return f"Task(id={self.id!r}, task={self.task!r}, date_created={self.date_created!r})"
     
 
 
 class User(db.Model):
     __tablename__ = 'users'
-    # __bind_key__ = 'users' # check for change on __init__.py
 
     id: Mapped[int] = mapped_column(primary_key=True)
     username: Mapped[str] = mapped_column(String(20), unique=True)
     password_hash: Mapped[str] = mapped_column(String(128))
 
-    todos: Mapped[List["Todo"]] = relationship(back_populates="user")
+    todos: Mapped[List["Task"]] = relationship(back_populates="user")
 
 
     def set_password(self, password):
