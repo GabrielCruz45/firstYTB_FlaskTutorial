@@ -3,6 +3,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import DeclarativeBase
 from flask_migrate import Migrate
+from flask_assets import Environment, Bundle
 
 class Base(DeclarativeBase):
     pass
@@ -22,11 +23,23 @@ def create_app():
         SQLALCHEMY_BINDS = {'users' : 'sqlite:///' + os.path.join(app.instance_path, 'users.db')}, # links to second database, can be used to link to mul;tiple other databases
         SQLALCHEMY_TRACK_MODIFICATIONS = False # disables deprecated feature
     )
+
     
     # db knows about the models and app knows where to find the database but it still hasn't been connected
     # fully links the database to the application, dejándose llevar por "app.config['SQLAlchemy_DATABASE_URI'] = 'sqlite:///test.db'"
     db.init_app(app) 
     migrate.init_app(app, db)
+
+    assets = Environment(app)
+
+    # configure scss
+    scss_bundle = Bundle(
+        'scss/main.scss',      # Source file
+        filters='libsass',     # Compiler to use
+        output='css/main.css'  # Output destination
+    )
+
+    assets.register('main_styles', scss_bundle)
 
     from . import models # (models isn't being used in this script but) this line executes the code inside models.py
     # you're importing it to run it for its registration side effects
