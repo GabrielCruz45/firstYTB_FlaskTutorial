@@ -74,3 +74,12 @@ June 16, 2025
     Restarted migration, learned that it's recommended to start the application development with the migration set up. You will probably change the database schema later on, and adds version control to your databases. Check migration_instructions.txt for further information.
 
     Added the new database in the configuration section of the app. Added it to models.py. Purposefuly left the password column to practice migration. Let's see how it goes, but first will push all the changes so far to the userAuth branch whilst creating the remote branch on GitHub.com
+
+    Pushed changes to GitHub.com, learned a little bit about pull requests. Also, "migrated" the databases successfully!
+
+    Will now move to Login, Register, Dashboard routes and Logout mechanism.
+
+    Remember to start changing the content inside the html files. The application's core logic changed.
+    Changed the content of the pertinent HTML and blueprints files to work with the developing user authentication feature.
+
+    Before moving on to styling with sass (to acquire the new skill), I'll have to link up both tables in order for them to be shown at the task_tracker.html template *after* the user logs in.

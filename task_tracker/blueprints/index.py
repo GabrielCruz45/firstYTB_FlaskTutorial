@@ -1,34 +1,12 @@
-from flask import Blueprint, render_template, request, redirect
-from .. import db
-from ..models import Todo
-from sqlalchemy import select
+from flask import Blueprint, render_template, redirect, session, url_for
 
 
 index_bp = Blueprint('index', __name__)
 
-# --- Routes ---
-# python decorator, tell your app to immediately trigger the following function 
-# after the user navigates to the specified URL path
-@index_bp.route('/', methods=["GET", "POST"])
-# view function; Flask executes this function whenever the user visits '/'
+@index_bp.route('/index')
 def index():
-    if request.method == "POST":
-        task_content = request.form['content']
-        new_task = Todo(content=task_content)
-
-        try:
-            db.session.add(new_task)
-            db.session.commit()
-            return redirect('/')
-        
-        except:
-            return "There was an error adding your task."
-        
-    else:
-        print("GET")
-        # Create a statement to select all tasks, ordered by their creation date
-        statement = select(Todo).order_by(Todo.date_created)
-
-        # Execute the statement and get all results as a list of Todo objects
-        tasks = db.session.scalars(statement).all()
-        return render_template("index.html", tasks=tasks) # runs index.html with tasks arranged in creation order
+    if "username" in session: # checks if user is logged in 
+        # (i.e. if the key-value pair "username" : "aactual-username" was added to the session dictionary)
+        return redirect(url_for("dashboard"))
+    
+    return render_template("index.html")
