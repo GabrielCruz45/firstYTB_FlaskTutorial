@@ -38,11 +38,19 @@ def create_app():
         from .blueprints.index import index_bp
         from .blueprints.update import update_bp
         from .blueprints.delete import delete_bp
-        from .blueprints.user_auth import user_auth_bp
+        from .blueprints.dashboard import dashboard_bp
+        from .blueprints.login import login_bp
+        from .blueprints.logout import logout_bp
+        from .blueprints.register import register_bp
+        from .blueprints.task_tracker import task_tracker_bp
 
         app.register_blueprint(index_bp)
         app.register_blueprint(delete_bp)
         app.register_blueprint(update_bp)
-        app.register_blueprint(user_auth_bp)
+        app.register_blueprint(dashboard_bp)
+        app.register_blueprint(login_bp)
+        app.register_blueprint(logout_bp)
+        app.register_blueprint(register_bp)
+        app.register_blueprint(task_tracker_bp)
 
     return app
