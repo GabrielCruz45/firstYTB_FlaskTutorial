@@ -91,3 +91,7 @@ June 16, 2025
     Changed the content of the pertinent HTML and blueprints files to work with the developing user authentication feature.
 
     Before moving on to styling with sass (to acquire the new skill), I'll have to link up both tables in order for them to be shown at the task_tracker.html template *after* the user logs in.
+
+    Merged branches (userAuth, main) with the working user authentication functionalities. Removed bugs and whatnot. Moved the databases to the instance folder and edited __init__.py to look to said databases there.
+
+    Added the anchor html tag on the dashboard for the task tracker route. Will make a new branch and develop that feature later on. Will now focus on sass, and "link up" the tables later on. Feeling tired of flask right now.

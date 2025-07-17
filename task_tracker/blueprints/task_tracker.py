@@ -11,7 +11,7 @@ task_tracker_bp = Blueprint('task_tracker', __name__)
 # after the user navigates to the specified URL path
 @task_tracker_bp.route('/', methods=["GET", "POST"])
 # view function; Flask executes this function whenever the user visits '/'
-def index():
+def task_tracker():
     if request.method == "POST":
         task_content = request.form['content']
         new_task = Todo(content=task_content)
