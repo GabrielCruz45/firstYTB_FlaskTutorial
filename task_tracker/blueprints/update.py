@@ -1,14 +1,13 @@
 from flask import Blueprint, render_template, request, redirect
 from .. import db
 from ..models import Task
-from sqlalchemy import select
 
 update_bp = Blueprint('update', __name__)
 
 @update_bp.route('/update/<int:id>', methods=['GET','POST'])
 def update(id):
     
-    task = Task.query.get_or_404(id)
+    task = db.get_or_404(Task, id)
 
     if request.method == 'POST':
         task.content = request.form['content']

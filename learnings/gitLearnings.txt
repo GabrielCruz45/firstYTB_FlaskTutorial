@@ -1,3 +1,27 @@
+Initialize, stage, first commit on local and push to remote Repository
+
+
+    Initialize local Repository
+        git init
+
+    Add your files to the staging area
+        git add .
+
+    Commit the staged files
+        git commit -m "Initial commit"
+
+
+    Connects your local repo to the remote one on GitHub
+        git remote add origin <YOUR_REMOTE_URL>
+
+    (Optional but good practice) Renames your main branch to 'main'
+        git branch -M main
+
+    Pushes your 'main' branch to the remote 'origin' and sets it as the default
+        git push -u origin main
+
+
+
 Branches
     
     Creates new branch, changes you to it

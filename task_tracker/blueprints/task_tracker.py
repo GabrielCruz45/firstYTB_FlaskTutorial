@@ -1,6 +1,6 @@
-from flask import Blueprint, render_template, request, redirect
+from flask import Blueprint, render_template, request, redirect, session
 from .. import db
-from ..models import Task
+from ..models import Task, User
 from sqlalchemy import select
 
 
@@ -17,8 +17,8 @@ def task_tracker():
         new_task = Task(content=task_content)
 
         try:
-            db.session.add(new_task)
-            db.session.commit()
+            # db.session.add(new_task)
+            # db.session.commit()
             return redirect('/')
         
         except:
@@ -27,8 +27,9 @@ def task_tracker():
     else:
         print("GET")
         # Create a statement to select all tasks, ordered by their creation date
-        statement = select(Task).order_by(Task.date_created)
+        statement = select(Task).where(User.username == session['username'])
 
         # Execute the statement and get all results as a list of Task objects
-        tasks = db.session.scalars(statement).all()
+        tasks = session.scalars(statement).all()
+        print(tasks)
         return render_template("index.html", tasks=tasks) # runs index.html with tasks arranged in creation order
